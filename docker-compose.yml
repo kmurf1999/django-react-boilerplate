@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+  waggle:
+      extends:
+        file: docker-common.yml
+        service: waggle
+      entrypoint:
+        - /waggle-entrypoint.sh
+      links:
+        - django
+      expose:
+        - 3000
+  webpackdev:
+    extends:
+      file: docker-common.yml
+      service: webpackdev
+    entrypoint:
+      - /webpackdev-entrypoint.sh
+    links:
+      - django
+  postgres:
+      extends:
+          file: docker-common.yml
+          service: postgres
+      ports:
+          - 5433:5432
+      volumes:
+          - ./docker/postgres/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh
+  nginx:
+      extends:
+          file: docker-common.yml
+          service: nginx
+      ports:
+          - 8000:8000
+      volumes:
+          - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      volumes_from:
+          - django
+  django:
+      extends:
+          file: docker-common.yml
+          service: django
+      links:
+          - postgres
+      entrypoint:
+          - /django-entrypoint.sh
+      expose:
+          - 8000

@@ -1,0 +1,27 @@
+Django==1.8.15
+django-extensions==1.7.7
+
+django-disposable-email-checker==1.2.1
+
+# PostgresSQL
+psycopg2==2.6.2
+
+# serve files
+whitenoise==3.2.2
+
+# Rest Framework
+djangorestframework==3.5.4
+
+# Sentry
+raven==5.27.1
+
+# Requets
+requests==2.18.2
+
+# for date processing
+python-dateutil==2.6.0
+
+# Logging
+git+https://github.com/Seedstars/django-rest-logger.git
+
+django-rest-knox==3.0.0
