@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Paper from 'material-ui/Paper';
+
+import styles from 'universal/modules/auth/styles/auth.css';
+
 
 const validate = values => {
   const errors = {}
@@ -18,19 +25,18 @@ const validate = values => {
 }
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type}/>
-      {touched && error && <span>{error}</span>}
-    </div>
-  </div>
+  <TextField
+    {...input}
+    floatingLabelText={label}
+    errorText={touched && error ? error : null}
+    type={type}
+  />
 );
 
 const renderAsyncError = statusText => {
   if (statusText) {
     return (
-      <h1>{statusText}</h1>
+      <div className={styles.asyncError}>{statusText}</div>
     );
   }
 };
@@ -38,13 +44,17 @@ const renderAsyncError = statusText => {
 const Signup = props => {
   const { handleSubmit, pristine, submitting, username, password, statusText } = props;
   return (
-    <form onSubmit={e => handleSubmit(e, username, password)}>
-      {renderAsyncError(statusText)}
-      <Field name="username" type="text" component={renderField} label="Username"/>
-      <Field name="password" type="password" component={renderField} label="Password"/>
-      <Field name="passwordAgain" type="password" component={renderField} label="Password (Again)"/>
-      <button type="submit" disabled={pristine || submitting} >Submit</button>
-    </form>
+    <MuiThemeProvider>
+      <Paper className={styles.formContainer}>
+        <form className={styles.form} onSubmit={e => handleSubmit(e, username, password)}>
+          {renderAsyncError(statusText)}
+          <Field name="username" type="text" component={renderField} label="Username"/>
+          <Field name="password" type="password" component={renderField} label="Password"/>
+          <Field name="passwordAgain" type="password" component={renderField} label="Password (Again)"/>
+          <RaisedButton className={styles.formButton} type="submit" primary={true} label="Submit" disabled={pristine || submitting} />
+        </form>
+      </Paper>
+    </MuiThemeProvider>
   );
 }
 

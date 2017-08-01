@@ -7,24 +7,24 @@ class Home extends Component {
   render () {
     return (
       <div className={styles.home}>
-        <h1 className={styles.title}>⚡ Universal JS, HMR and SSR ⚡</h1>
+        <h1 className={styles.title}>Django React Redux SSR</h1>
 
         <div>
           <h2>What is it?</h2>
           <ul>
             <li>
-              <b>Universal JS: -</b><br />
-              <p>JavaScript that can run on both the server and client (or any other JS platform for that matter) !</p>
+              <b>Django REST api</b><br />
+              <p>Django REST handles the authentication and Postgresql database</p>
             </li>
 
             <li>
-              <b>Hot Module Reloading: -</b><br />
-              <p>Replaces modules that have been changed in real time while preserving the state.</p>
+              <b>React Redux Client</b><br />
+              <p>Django Will Serve a gzipped React Redux App</p>
             </li>
 
             <li>
-              <b>Server Side Rendering: -</b><br />
-              <p>Renders Pages on the initial for fast page loads and search engine optimization</p>
+              <b>Waggle: Server Side Rendering</b><br />
+              <p>An intermediate "waggle" server will handle the server side Rendering to Increase initial page load and SEO</p>
             </li>
           </ul>
         </div>
@@ -33,10 +33,9 @@ class Home extends Component {
         <div>
           <h2>Why?</h2>
           <ul>
-            <li>Incredibly Productive</li>
-            <li>Extremely Flexible</li>
             <li>Blazing Fast</li>
-            <li>... And its just plain cool 😎</li>
+            <li>Organized</li>
+            <li>Easy to build on top of</li>
           </ul>
         </div>
 
@@ -46,20 +45,10 @@ class Home extends Component {
           <p>The Basic setup goes like this...</p>
 
           <ol>
-            <li><p>An express server to handle requests, render the page and handle all our file requests.</p></li>
-            <li><p>Webpack to bundle everything up listen for files changes and hot reload them to the client.</p></li>
-            <li><p>We will be using React, Redux and React Router to match url requests, and render the state to html that we can then send back to the client.</p></li>
+            <li><p>Nginx will reverse proxy to django at port 8000 and served static assets gzipped</p></li>
+            <li><p>Django will send a post request to an express server on port 3000 that will return the html as a string</p></li>
+            <li><p>Django will serve that string and once the JavaScript is loaded the application state will be handed over</p></li>
           </ol>
-
-          <p>Lets check it out...</p>
-        </div>
-
-
-        <div className={styles.center}>
-          <Link className={styles.button} to='/counter'>Go to App</Link>
-        </div>
-        <div className={styles.center}>
-          <Link className={styles.button} to='/login'>Go to login</Link>
         </div>
       </div>
     );

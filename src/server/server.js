@@ -2,7 +2,6 @@ import http from 'http';
 import express from 'express';
 import colors from 'colors';
 import path from 'path';
-import compression from 'compression';
 // Server Side Rendering
 import {
   renderPage,
@@ -16,14 +15,13 @@ const app = express();
 const PORT = 3000;
 
 if (PROD) {
-  app.use(compression());
   app.use('/static', express.static('build'));
   app.post('*', renderPage);
 } else {
   const HMR = require('./hmr.js');
   // Hot Module Reloading
   HMR(app);
-  app.post('*', renderDevPage);
+  app.get('*', renderDevPage);
 }
 
 // catch 404 and forward to error handler

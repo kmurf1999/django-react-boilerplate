@@ -13,7 +13,7 @@ export const LOGOUT = 'LOGOUT';
 const SERVER_URL = 'http://localhost:8000';
 
 const initialState = {
-  authenticated: false,
+  isAuthenticated: false,
   isAuthenticating: false,
   statusText: null,
   user: {},
@@ -24,12 +24,12 @@ export default createReducer(initialState, {
     [LOGIN_REQUEST]: (state, payload) => {
       return Object.assign({}, state, {
         isAuthenticating: true,
-        statusText: 'Logging in'
+        statusText: ''
       });
     },
     [LOGIN_SUCCESS]: (state, payload) => {
       return Object.assign({}, state, {
-        authenticated: true,
+        isAuthenticated: true,
         isAuthenticating: false,
         statusText: '',
         token: payload.token,
@@ -38,7 +38,7 @@ export default createReducer(initialState, {
     },
     [LOGIN_FAILURE]: (state, payload) => {
       return Object.assign({}, state, {
-        authenticated: false,
+        isAuthenticated: false,
         isAuthenticating: false,
         statusText: `${payload.errorCode} ${payload.errorMessage}`
       });
@@ -51,26 +51,26 @@ export default createReducer(initialState, {
     },
     [SIGNUP_SUCCESS]: (state, payload) => {
       return Object.assign({}, state, {
-        authenticated: false,
+        isAuthenticated: false,
         isAuthenticating: false,
         statusText: ''
       });
     },
     [SIGNUP_FAILURE]: (state, payload) => {
       return Object.assign({}, state, {
-        authenticated: false,
+        isAuthenticated: false,
         isAuthenticating: false,
         statusText: `${payload.errorCode} ${payload.errorMessage}`
       });
     },
     [LOGOUT]: (state, payload) => {
       return Object.assign({}, state, {
-        authenticated: false,
+        isAuthenticated: false,
         isAuthenticating: false,
         token: '',
         user: {},
         statusText: ''
-      })
+      });
     },
 });
 
@@ -201,7 +201,7 @@ export function signup(username, password) {
   };
 }
 
-export function authLogout() {
+export function logout() {
   localStorage.removeItem('token');
   localStorage.removeItem('user');
   return {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-
+import injectTapEventPlugin from 'react-tap-event-plugin';
 // Components
 import App from './containers/AppContainer.js';
 
@@ -27,8 +27,9 @@ const renderApp = (Component) => {
     );
 }
 
+injectTapEventPlugin();
 renderApp(App);
-registerServiceWorker();
+// registerServiceWorker();
 
 if (module.hot) {
   module.hot.accept('./containers/AppContainer.js', () => {

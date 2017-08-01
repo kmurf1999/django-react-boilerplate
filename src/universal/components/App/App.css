@@ -5,21 +5,22 @@ html {
 }
 
 body {
+   width: 100%;
    min-height: 100%;
    margin: 0;
    padding: 0;
+   padding-top: 64px !important;
    display: flex;
    position: relative;
    justify-content: center;
    align-items: center;
-   font-family: 'Arvo', Arial, Helvetica, Sans-serif;
-   background: linear-gradient(90deg, #80A2CC, #F99F86);
-   background: -webkit-linear-gradient(90deg, #80A2CC, #F99F86);
+   font-family: 'Roboto', Sans-serif, Helvetica;
+   background: #EEEEEE;
 
 }
 
 h1,h2,h3,h4,h5,h6 {
-  color: white;
+  color: #212121;
 }
 
 h2 {
@@ -29,16 +30,14 @@ h2 {
 
 p, li, ul, ol {
   font-family: 'Raleway';
-  color: white;
+  color: #212121;
   font-size: 20px;
   line-height: 1.25em;
 }
 
 .app {
-  /*width: 100%;
-  height: 100%;*/
-  margin-bottom: 150px;
-  margin-top: 150px;
+  width: 100%;
+  height: 100%;
 
   /*padding-top: 100px;*/
 }

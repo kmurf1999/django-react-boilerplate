@@ -46,12 +46,18 @@ export default {
   ],
   module: {
     loaders: [
-      {test: /\.(png|j|jpeg|gif|svg|woff|woff2)$/,
+      {test: /\.(png|j|jpeg|gif)$/,
         use: {
           loader: 'url-loader',
           options: {
             limit: 10000
           }
+        }
+      },
+
+      {test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: {
+          loader: 'file?name=material-design-icons/iconfont/[name].[ext]'
         }
       },
 

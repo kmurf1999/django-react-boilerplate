@@ -54,9 +54,11 @@ class Html extends Component {
          <meta name="apple-mobile-web-app-capable" content="yes"/>
          <link rel="apple-touch-icon" href="/static/public/favicon.ico"/>
          <link rel="icon" href="/static/public/favicon.ico"/>
-
          <title>{title}</title>
          <link rel="manifest" href="/static/public/manifest.json"/>
+
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
          {PROD && <link rel="stylesheet" href="/static/prerender.css" type="text/css" />}
        </head>
        <body>
@@ -65,7 +67,6 @@ class Html extends Component {
           {PROD && <script dangerouslySetInnerHTML={{__html: manifest.text}}/>}
           {PROD && <script src={vendor.js}/>}
          <script src={PROD ? app.js : '/static/app.js'} />
-         <noscript>This Application Requires Javascript to Run</noscript>
        </body>
      </html>
     );

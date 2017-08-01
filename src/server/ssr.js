@@ -27,7 +27,6 @@ function renderApp(url, res, store, assets) {
       context={context}
       assets={assets} />
   );
-
   res.send('<!DOCTYPE html>'+html);
 }
 
