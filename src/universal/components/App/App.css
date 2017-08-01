@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 html {
   height: 100%;
   background: linear-gradient(90deg, #80A2CC, #F99F86);
@@ -14,13 +17,13 @@ body {
    position: relative;
    justify-content: center;
    align-items: center;
-   font-family: 'Roboto', Sans-serif, Helvetica;
+   font-family: 'Roboto', 'Open-Sans', Helvetica;
    background: #EEEEEE;
-
 }
 
 h1,h2,h3,h4,h5,h6 {
   color: #212121;
+  font-weight: 400;
 }
 
 h2 {
@@ -29,7 +32,7 @@ h2 {
 }
 
 p, li, ul, ol {
-  font-family: 'Raleway';
+  font-family: Helvetica;
   color: #212121;
   font-size: 20px;
   line-height: 1.25em;

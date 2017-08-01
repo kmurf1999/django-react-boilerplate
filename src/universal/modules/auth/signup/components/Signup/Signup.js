@@ -17,9 +17,11 @@ const validate = values => {
   }
   if (!values.password) {
     errors.password = 'Required';
-  }
-  if (values.password !== values.passwordAgain) {
+  } else if (values.password !== values.passwordAgain) {
     errors.password = 'Passwords do not match';
+  }
+  if (!values.passwordAgain) {
+    errors.passwordAgain = 'Required';
   }
   return errors
 }
