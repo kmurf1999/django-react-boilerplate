@@ -1,7 +1,7 @@
 {
   "name": "djano-react-boilerplate",
   "version": "1.0.0",
-  "description": "Univeral JS application utilizing Hot Module Reloading, Server Side Rendering, Code Splitting with React, Redux, React Router 4 and a heroku like deploy setup with Dokku.",
+  "description": "Django react redux ssr boilerplate",
   "main": "index.js",
   "scripts": {
     "development": "NODE_PATH=./src NODE_ENV=development node src/server/server.babel.js",
