@@ -1,5 +1,8 @@
 import fetch from 'isomorphic-fetch'
 
+import {SERVER_URL} from 'universal/utils/config';
+import { checkHttpStatus, parseJSON, createReducer } from 'universal/utils/utils';
+
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
@@ -10,7 +13,6 @@ export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 
 export const LOGOUT = 'LOGOUT';
 
-const SERVER_URL = 'http://localhost:8000';
 
 const initialState = {
   isAuthenticated: false,
@@ -207,26 +209,4 @@ export function logout() {
   return {
     type: LOGOUT
   };
-}
-
-// Helper functions
-export function createReducer(initialState, reducerMap) {
-    return (state = initialState, action) => {
-        const reducer = reducerMap[action.type];
-        return reducer ? reducer(state, action.payload) : state;
-    };
-}
-
-export function checkHttpStatus(response) {
-    if (response.status >= 200 && response.status < 300) {
-        return response;
-    }
-
-    const error = new Error(response.statusText);
-    error.response = response;
-    throw error;
-}
-
-export function parseJSON(response) {
-    return response.json();
 }

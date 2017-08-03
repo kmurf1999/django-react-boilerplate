@@ -32,7 +32,7 @@ class NavContainer extends Component {
       <MuiThemeProvider>
         <div>
           <NavBar {...this.props} />
-          <SideNav {...this.props} goToUrl={this.goToUrl} logout={this.logout}/>
+          <SideNav path={this.props.location.pathname || '/'} {...this.props} goToUrl={this.goToUrl} logout={this.logout}/>
         </div>
       </MuiThemeProvider>
     );
@@ -43,7 +43,7 @@ function mapStateToProps(state, props) {
   return {
     menuOpen: state.menu.menuOpen,
     username: state.auth.user.username,
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
   };
 }
 
