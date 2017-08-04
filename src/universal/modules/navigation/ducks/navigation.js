@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-import { createReducer } from 'universal/utils/utils';
+import { createReducer } from '../../../utils/utils';
 
 
 export const MENU_TOGGLE = 'MENU_TOGGLE';

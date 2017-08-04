@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import App from 'universal/components/App/App';
+import App from '../../components/App/App';
 
 class AppContainer extends Component {
   static propTypes = {

@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../universal/modules/auth/ducks/auth';
 
 // Components
-import Routes from 'universal/routes/Routes.js';
+import Routes from '../../universal/routes/Routes.js';
 
 @connect(null, mapDispatchToProps)
 class AppContainer extends Component {

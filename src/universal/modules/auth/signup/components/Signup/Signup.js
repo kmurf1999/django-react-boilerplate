@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 
-import styles from 'universal/modules/auth/styles/auth.css';
+import styles from '../../../styles/auth.css';
 
 
 const validate = values => {

@@ -7,7 +7,7 @@ import {withRouter} from "react-router-dom";
 import SideNav from '../../components/SideNav/SideNav';
 import NavBar from '../../components/NavBar/NavBar';
 import * as actionCreators from '../../ducks/navigation';
-import {logout, LOGOUT} from 'universal/modules/auth/ducks/auth';
+import {logout, LOGOUT} from '../../../auth/ducks/auth';
 
 @connect(mapStateToProps, mapDispatchToProps)
 class NavContainer extends Component {

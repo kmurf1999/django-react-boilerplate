@@ -5,8 +5,8 @@ import nock from 'nock';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { SERVER_URL } from '../../../src/universal/utils/config.js';
-import * as DUCKS from '../../../src/universal/modules/auth/ducks/auth.js';
+import { SERVER_URL } from '../../../utils/config';
+import * as DUCKS from './auth.js';
 
 
 describe('Auth Actions:', () => {

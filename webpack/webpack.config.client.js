@@ -81,7 +81,7 @@ export default {
      },
 
      // JavaScript
-     {test: /\.js$/,
+     {test: /^(?!.*\.spec\.js$).*\.js$/,
        loader: 'babel-loader',
        include: clientInclude
      },

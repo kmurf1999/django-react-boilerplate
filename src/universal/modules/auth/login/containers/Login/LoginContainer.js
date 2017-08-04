@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import { formValueSelector } from 'redux-form'
 import { bindActionCreators } from 'redux';
 
-import Login from 'universal/modules/auth/login/components/Login/Login';
-import * as actionCreators from 'universal/modules/auth/ducks/auth';
+import Login from '../../components/Login/Login';
+import * as actionCreators from '../../../ducks/auth';
 
 @connect(mapStateToProps, mapDispatchToProps)
 class LoginContainer extends Component {

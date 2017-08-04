@@ -3,13 +3,13 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 
 // Components
-import Counter from 'universal/modules/counter/components/Counter/Counter.js';
+import Counter from '../../components/Counter/Counter.js';
 
 // Actions
 import {
   incrementCount,
   decrementCount
-} from 'universal/modules/counter/ducks/counter.js';
+} from '../../ducks/counter.js';
 
 
 @connect(mapStateToProps, mapDispatchToProps)

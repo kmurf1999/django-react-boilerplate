@@ -28,8 +28,8 @@ const renderApp = (Component) => {
 }
 
 injectTapEventPlugin();
+registerServiceWorker();
 renderApp(App);
-// registerServiceWorker();
 
 if (module.hot) {
   module.hot.accept('./containers/AppContainer.js', () => {
