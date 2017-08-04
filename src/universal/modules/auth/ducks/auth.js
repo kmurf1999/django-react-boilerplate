@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch'
 
-import {SERVER_URL} from 'universal/utils/config';
-import { checkHttpStatus, parseJSON, createReducer } from 'universal/utils/utils';
+import {SERVER_URL} from '../../../utils/config';
+import { checkHttpStatus, parseJSON, createReducer } from '../../../utils/utils';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -55,7 +55,9 @@ export default createReducer(initialState, {
       return Object.assign({}, state, {
         isAuthenticated: false,
         isAuthenticating: false,
-        statusText: ''
+        statusText: '',
+        user: payload.user,
+        token: payload.token
       });
     },
     [SIGNUP_FAILURE]: (state, payload) => {
@@ -147,9 +149,15 @@ export function signupRequest() {
   };
 }
 
-export function signupSuccess() {
+export function signupSuccess(token, user) {
+  localStorage.setItem('token', token);
+  localStorage.setItem('user', JSON.stringify(user));
   return {
-    type: SIGNUP_SUCCESS
+    type: SIGNUP_SUCCESS,
+    payload: {
+      token,
+      user
+    }
   };
 }
 
@@ -180,8 +188,7 @@ export function signup(username, password) {
     .then(checkHttpStatus)
     .then(parseJSON)
     .then((response) => {
-      dispatch(signupSuccess());
-      dispatch(login(username, password));
+      dispatch(signupSuccess(response.token, response.user));
     })
     .catch((error) => {
       if (error && typeof error.response !== 'undefined' && error.response.status === 400) {

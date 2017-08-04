@@ -9,7 +9,8 @@
     "build": "yarn build:client && yarn build:server",
     "build:server": "NODE_ENV=production webpack --config webpack/server.babel.js",
     "build:client": "NODE_ENV=production webpack --config webpack/client.babel.js",
-    "watch": "NODE_ENV=production webpack --config webpack/client.babel.js --watch"
+    "watch": "NODE_ENV=production webpack --config webpack/client.babel.js --watch",
+    "mocha": "mocha --require tests/require --recursive --compilers js:babel-core/register tests/js"
   },
   "keywords": [
     "react",
@@ -34,9 +35,15 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.24.0",
+    "chai": "^4.1.0",
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
+    "ignore-styles": "^5.0.1",
+    "jsdom": "9.8.3",
+    "mocha": "^3.5.0",
+    "nock": "^9.0.14",
     "react-hot-loader": "^3.0.0-beta.6",
+    "redux-mock-store": "^1.2.3",
     "style-loader": "^0.16.1",
     "webpack": "^2.3.3",
     "webpack-dev-middleware": "^1.10.1",
