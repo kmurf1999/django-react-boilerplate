@@ -2,3 +2,49 @@
 node_modules
 build
 npm-debug.log
+.idea
+
+__pycache__
+# IDEs
+.project
+.pydevproject
+.vscode
+.settings
+
+# Random files
+*~
+\#*
+
+virtualenv/
+htmlcov/
+react/static_dist/
+djangok8s/static/
+
+# Python compiled byte code
+*.pyc
+
+# SQLite3 database
+*.sqlite
+*.sqlite3
+
+# Node modules
+node_modules/
+npm-debug.log
+
+# Coverage
+coverage/
+.coverage
+.cache
+
+# static validation files
+.eslintrc
+.sass-lint.yml
+.prospector.yml
+.coveragerc
+
+# in case we run shippable tests don't include it
+shippable/
+
+# not include scripts because they come from external module
+scripts/
+
