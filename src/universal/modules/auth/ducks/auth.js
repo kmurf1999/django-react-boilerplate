@@ -26,7 +26,7 @@ export default createReducer(initialState, {
     [LOGIN_REQUEST]: (state, payload) => {
       return Object.assign({}, state, {
         isAuthenticating: true,
-        statusText: ''
+        statusText: 'Submitting...'
       });
     },
     [LOGIN_SUCCESS]: (state, payload) => {

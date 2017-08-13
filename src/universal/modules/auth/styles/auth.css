@@ -19,3 +19,11 @@
   padding: 5px;
   text-align: center;
 }
+
+.linkText {
+  color: #455A64;
+}
+
+.link {
+  color: #3F51B5;
+}

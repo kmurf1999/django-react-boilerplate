@@ -53,4 +53,4 @@ export const Signup = asyncRoute(() => {
 
 export const Navigation = asyncRoute(() => {
   return System.import('../modules/navigation/containers/Navigation/NavContainer');
-})
+});

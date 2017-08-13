@@ -35,6 +35,10 @@ p, li, ul, ol {
   line-height: 1.25em;
 }
 
+a {
+  color: #3F51B5;
+}
+
 .app {
   width: 100%;
   height: 100%;

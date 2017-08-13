@@ -7,18 +7,16 @@ import { shallow } from 'enzyme';
 import App from './App';
 
 describe('App (Component):', () => {
-  context('Empty state:', () => {
-    let wrapper;
-    const props = {
-      children: <div className="test-test"/>
-    };
+  let wrapper;
+  const props = {
+    children: <div className="test-test"/>
+  };
 
-    beforeEach(() => {
-      wrapper = shallow(<App {...props}/>);
-    });
+  beforeEach(() => {
+    wrapper = shallow(<App {...props}/>);
+  });
 
-    it('should render correctly', () => {
-      return expect(wrapper).to.be.ok;
-    });
+  it('should render correctly', () => {
+    return expect(wrapper).to.be.ok;
   });
 });

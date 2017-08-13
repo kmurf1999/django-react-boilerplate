@@ -3,11 +3,7 @@ import React, {Component, PropTypes} from  'react';
 import {Route, Redirect} from 'react-router';
 
 // Routes
-// For Development only
 import * as RouteMap from '../routes/static.js';
-
-// This is used in production for code splitting via `wepback.config.server.js`
-// import * as RouteMap from 'universal/routes/async.js';
 
 // Containers
 import AppContainer from '../containers/App/AppContainer.js';
@@ -15,9 +11,7 @@ import AppContainer from '../containers/App/AppContainer.js';
 
 class Routes extends Component {
   render () {
-    const {
-      location
-    } = this.props;
+    const { location } = this.props;
 
     return (
       <AppContainer>
