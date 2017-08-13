@@ -31,6 +31,9 @@ djangok8s/static/
 node_modules/
 npm-debug.log
 
+# yarn
+yarn.lock
+
 # Coverage
 coverage/
 .coverage
@@ -47,4 +50,3 @@ shippable/
 
 # not include scripts because they come from external module
 scripts/
-
