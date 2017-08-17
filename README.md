@@ -16,6 +16,10 @@ it has been cobbled together and built on top of the following projects
 * django serves that html
 * once the app.js is finished downloading, application state is handed over
 
+**Screenshots**
+![Home](/screenshots/home.png)
+
+
 ## Retrieve code
 
 * `$ git clone https://github.com/ruffers9/django-react-boilerplate.git`
