@@ -16,10 +16,6 @@ it has been cobbled together and built on top of the following projects
 * django serves that html
 * once the app.js is finished downloading, application state is handed over
 
-**Screenshots**
-![Home](/screenshots/home.png)
-
-
 ## Retrieve code
 
 * `$ git clone https://github.com/ruffers9/django-react-boilerplate.git`
@@ -51,3 +47,8 @@ Stop Docker development server and remove containers, networks, volumes, and ima
 You can access shell in a container
 
 * `$ docker exec -i -t <CONTAINER_NAME_OR_ID> /bin/bash`
+
+**Screenshots**
+![Home](/screenshots/home.png)
+![Login](/screenshots/login.png)
+![Menu](/screenshots/menu.png)
