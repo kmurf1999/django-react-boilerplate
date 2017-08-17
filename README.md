@@ -49,6 +49,6 @@ You can access shell in a container
 * `$ docker exec -i -t <CONTAINER_NAME_OR_ID> /bin/bash`
 
 ## Screenshots
-![Home](/screenshots/home.png home)
-![Login](/screenshots/login.png login)
-![Menu](/screenshots/menu.png menu)
+![Home](/screenshots/home.png "home")
+![Login](/screenshots/login.png "login")
+![Menu](/screenshots/menu.png "menu")
