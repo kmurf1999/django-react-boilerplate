@@ -48,5 +48,3 @@ coverage/
 # in case we run shippable tests don't include it
 shippable/
 
-# not include scripts because they come from external module
-scripts/
