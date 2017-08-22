@@ -22,19 +22,3 @@ class IndexView(View):
         response = self.session.post('http://waggle:3000%s' % path)
 
         return HttpResponse(response.text)
-
-
-class ProtectedDataView(GenericAPIView):
-    """Return protected data main page."""
-
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
-
-    def get(self, request):
-        """Process GET request and return protected data."""
-
-        data = {
-            'data': 'THIS IS THE PROTECTED STRING FROM SERVER',
-        }
-
-        return Response(data, status=status.HTTP_200_OK)

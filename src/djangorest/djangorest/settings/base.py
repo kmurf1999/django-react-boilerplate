@@ -76,6 +76,7 @@ AUTH_USER_MODEL = 'accounts.User'
 ACCOUNT_ACTIVATION_DAYS = 7  # days
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '../../build'),
 )

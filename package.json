@@ -24,7 +24,6 @@
     "webpack"
   ],
   "author": "Kyle Murphy <ruffers39@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
     "autoprefixer": "^6.7.7",
@@ -35,7 +34,7 @@
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
-    "babel-register": "^6.24.0",
+    "babel-register": "^6.26.0",
     "chai": "^4.1.0",
     "chai-enzyme": "^0.8.0",
     "css-loader": "^0.28.0",
