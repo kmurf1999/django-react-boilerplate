@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 
-import styles from './App.css';
+import '../../styles/base.scss';
 
 class App extends Component {
   static propTypes = {
@@ -9,7 +9,7 @@ class App extends Component {
 
   render () {
     return (
-      <div className={styles.app}>
+      <div className="app">
         {this.props.children}
       </div>
     );

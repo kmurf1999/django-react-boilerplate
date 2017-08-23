@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import 'node_modules/sass-material-colors/sass/sass-material-colors';
+@import "./mixins.scss";
+
+$font-family-regular: 'Roboto', 'Open-Sans', Helvetica;
+
+h1,h2,h3,h4,h5,h6 {
+  color: material-color('grey', '800');
+  font-weight: 400;
+  font-family: $font-family-regular;
+}
+
+h1 {
+  @include font-size(30);
+}
+
+h2 {
+  @include font-size(24);
+}
+
+h3 {
+  @include font-size(20);
+}
+
+h4 {
+  @include font-size(16);
+}
+
+p, li, ul, ol, div {
+  font-family: Helvetica;
+  color: material-color('grey', '700');
+  @include font-size(10);
+  font-family: $font-family-regular;
+}
+
+a {
+  @include font-size(10);
+  color: material-color('blue', '800');
+  font-family: $font-family-regular;
+  @include transition(color 0.2s ease all);
+  :hover {
+    color: material-color('blue');
+  }
+}

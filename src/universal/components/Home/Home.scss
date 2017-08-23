@@ -1,0 +1,29 @@
+@import "src/universal/styles/space.scss";
+
+.home {
+  div {
+    h2 {
+      margin: $space-stack-s;
+    }
+    ul {
+      li {
+        margin: $space-stack-s;
+        margin-left: $space-m;
+      }
+      list-style-type: circle;
+    }
+    margin: $space-stack-default;
+  }
+  max-width: 750px;
+  padding: $space-inset-default;
+}
+
+.center {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  margin: $space-stack-l;
+}

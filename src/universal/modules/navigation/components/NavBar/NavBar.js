@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
 
-import styles from './NavBar.css';
+import './NavBar.scss';
 
 const iconStyle = {
   open: {
@@ -19,7 +19,7 @@ const iconStyle = {
 
 const NavBar = props => {
   return (
-    <IconButton iconStyle={props.menuOpen ? iconStyle.open : iconStyle.close} style={{position: "fixed"}} className={styles.appBar} onTouchTap={() => props.actions.toggleMenu(!props.menuOpen)}>
+    <IconButton iconStyle={props.menuOpen ? iconStyle.open : iconStyle.close} style={{position: "fixed"}} className="appBar" onTouchTap={() => props.actions.toggleMenu(!props.menuOpen)}>
       <FontIcon color={props.menuOpen ? "#E0E0E0" : "#212121"} className="material-icons">{props.menuOpen ? 'close' : 'menu'}</FontIcon>
     </IconButton>
   );

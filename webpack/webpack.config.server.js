@@ -62,19 +62,18 @@ export default {
       },
 
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         include: serverInclude,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
           use: [
-            {loader: 'css-loader',
-             options: {
-               root: src,
-               modules: true,
-               importLoaders: 1,
-               localIdentName: '[name]_[local]_[hash:base64:5]'
-             }}
-          ]})
+            {
+              loader: 'css-loader'
+            },
+            'postcss-loader',
+            'sass-loader'
+          ]
+        }),
       },
 
       {

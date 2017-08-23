@@ -3,8 +3,8 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 
+import './SideNav.scss'
 
-import styles from './SideNav.css'
 
 class MenuButton extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class MenuButton extends Component {
   render() {
     const { url, goToUrl, color, label } = this.props;
     return (
-      <button style={{color: this.state.color}} onMouseEnter={() => this.hover(true)} onMouseLeave={() => this.hover(false)} onTouchTap={() => goToUrl(url)} className={styles.menuButton}>{label}</button>
+      <button style={{color: this.state.color}} onMouseEnter={() => this.hover(true)} onMouseLeave={() => this.hover(false)} onTouchTap={() => goToUrl(url)} className="menuButton">{label}</button>
     );
   }
 }
@@ -52,13 +52,13 @@ class MenuButton extends Component {
 
 const LogoutButton = props => {
   return (
-    <button onTouchTap={() => props.logout()} className={styles.logoutButton}>{props.label}</button>
+    <button onTouchTap={() => props.logout()} className="logoutButton">{props.label}</button>
   );
 }
 
 const SideNav = props => {
   return (
-    <div className={props.menuOpen ? styles.navOpen : styles.navClose}>
+    <div className={props.menuOpen ? "navOpen" : "navClose"}>
       <MenuButton path={props.path} color="#2196F3" goToUrl={props.goToUrl} url='/' label="Home"/>
       <MenuButton path={props.path} color="#00BCD4" goToUrl={props.goToUrl} url='/counter' label="Counter"/>
       {!props.isAuthenticated ? <MenuButton path={props.path} color="#4CAF50" goToUrl={props.goToUrl} url='/login' label="Login"/> : null }

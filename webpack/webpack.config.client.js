@@ -6,6 +6,7 @@ import autoprefixer from 'autoprefixer';
 import AssetsPlugin from 'assets-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
+
 const root = process.cwd();
 const src  = path.join(root, 'src');
 const build = path.join(root, 'build');
@@ -86,21 +87,20 @@ export default {
        include: clientInclude
      },
 
-     // CSS
-     {test: /\.css|less$/,
-      include: clientInclude,
-      loaders: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          {loader: 'css-loader',
-           options: {
-             root: src,
-             modules: true,
-             importLoaders: 1,
-             localIdentName: '[name]_[local]'
-           }}
-        ]})
-     }
+     {
+       test: /\.scss$/,
+       include: clientInclude,
+       use: ExtractTextPlugin.extract({
+         fallback: "style-loader",
+         use: [
+           {
+             loader: 'css-loader'
+           },
+           'postcss-loader',
+           'sass-loader'
+         ]
+       }),
+     },
 
    ]
  }

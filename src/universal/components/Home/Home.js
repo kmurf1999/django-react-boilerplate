@@ -1,12 +1,12 @@
 import React, {Component, PropTypes} from 'react';
 
-import styles from './Home.css';
+import './Home.scss';
 
 class Home extends Component {
   render () {
     return (
-      <div className={styles.home}>
-        <h1 className={styles.title}>Django React Redux SSR</h1>
+      <div className="home">
+        <h1 className="title">Django React Redux SSR</h1>
 
         <div>
           <h2>What is it?</h2>
@@ -40,14 +40,11 @@ class Home extends Component {
 
         <div>
           <h2>How?</h2>
-
-          <p>The Basic setup goes like this...</p>
-
-          <ol>
+          <ul>
             <li><p>Nginx will reverse proxy to django at port 8000 and served static assets gzipped</p></li>
             <li><p>Django will send a post request to an express server on port 3000 that will return the html as a string</p></li>
             <li><p>Django will serve that string and once the JavaScript is loaded the application state will be handed over</p></li>
-          </ol>
+          </ul>
         </div>
       </div>
     );

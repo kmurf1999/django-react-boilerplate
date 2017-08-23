@@ -7,7 +7,7 @@ import Paper from 'material-ui/Paper';
 import { Link } from 'react-router-dom';
 
 
-import styles from '../../../styles/auth.css';
+import '../../../styles/auth.scss';
 
 const validate = values => {
   const errors = {}
@@ -32,7 +32,7 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 const renderAsyncError = statusText => {
   if (statusText) {
     return (
-      <div className={styles.asyncError}>{statusText}</div>
+      <div className="asyncError">{statusText}</div>
     );
   }
 };
@@ -42,15 +42,15 @@ const Login = props => {
   return (
     <MuiThemeProvider>
       <div>
-        <Paper className={styles.formContainer}>
-          <form className={styles.form} onSubmit={e => handleSubmit(e, username, password)}>
+        <Paper className="formContainer">
+          <form className="form" onSubmit={e => handleSubmit(e, username, password)}>
             {renderAsyncError(statusText)}
             <Field name="username" type="text" component={renderField} label="Username"/>
             <Field name="password" type="password" component={renderField} label="Password"/>
-            <RaisedButton className={styles.formButton} type="submit" primary={true} label={submitting ? "Submitting" : "Submit"} disabled={pristine || submitting} />
+            <RaisedButton className="formButton" type="submit" primary={true} label={submitting ? "Submitting" : "Submit"} disabled={pristine || submitting} />
           </form>
         </Paper>
-        <p className={styles.linkText}>Don't have an account? <Link className={styles.link} to='/signup'>Signup</Link></p>
+        <p className="linkText">Don't have an account? <Link className="link" to='/signup'>Signup</Link></p>
       </div>
     </MuiThemeProvider>
   );

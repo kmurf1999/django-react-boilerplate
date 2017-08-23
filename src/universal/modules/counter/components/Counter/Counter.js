@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import styles from './Counter.css';
+import './Counter.scss';
 import classNames from 'classnames';
 
 class Counter extends Component {
@@ -33,10 +33,10 @@ class Counter extends Component {
     } = this.props;
 
     return (
-      <div className={styles.counterContainer}>
-        <div className={styles.counter}>{count}</div>
-        <a className={classNames(styles.button, styles.positive)} onClick={this.handleIncrementClick.bind(this, incrementCount)}>+</a>
-        <a className={classNames(styles.button, styles.negative)} onClick={this.handleDecrementClick.bind(this, decrementCount)}>-</a>
+      <div className={"counterContainer"}>
+        <div className={"counter"}>{count}</div>
+        <a className={classNames("button", "positive")} onClick={this.handleIncrementClick.bind(this, incrementCount)}>+</a>
+        <a className={classNames("button", "negative")} onClick={this.handleDecrementClick.bind(this, decrementCount)}>-</a>
       </div>
     )
   }

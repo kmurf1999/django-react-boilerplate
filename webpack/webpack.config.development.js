@@ -1,6 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
 import qs from 'querystring';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+
 
 const root = process.cwd();
 const src  = path.join(root, 'src');
@@ -41,6 +43,7 @@ export default {
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
+    new ExtractTextPlugin('[name].css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
@@ -71,20 +74,21 @@ export default {
        include: clientInclude
       },
 
-      // CSS
-      {test: /\.css$/,
-       include: clientInclude,
-       use: [
-         {loader: 'style-loader'},
-         {loader: 'css-loader',
-          options: {
-            root: src,
-            modules: true,
-            importLoaders: 1,
-            localIdentName: '[name]_[local]_[hash:base64:5]'
-          }}
-       ]
-      }
+      {
+        test: /\.scss|css$/,
+        include: clientInclude,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: 'css-loader'
+            },
+            'postcss-loader',
+            'sass-loader'
+          ]
+        }),
+      },
+
     ]
   }
 };
