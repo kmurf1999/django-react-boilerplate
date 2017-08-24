@@ -1,4 +1,5 @@
 @import "src/universal/styles/space.scss";
+@import "src/universal/styles/mixins.scss";
 @import 'node_modules/sass-material-colors/sass/sass-material-colors';
 
 .appBar {
@@ -7,4 +8,20 @@
   left: $space-s;
   z-index: 9999 !important;
   padding: 0 !important;
+}
+
+.brand-name {
+  @include font-size(16);
+  line-height: (3rem);
+  position: absolute;
+  top: $space-s;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  background-color: material-color('green', '300');
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
 }

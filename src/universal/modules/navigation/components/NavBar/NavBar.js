@@ -23,9 +23,12 @@ const iconStyle = {
 
 const NavBar = props => {
   return (
-    <IconButton iconStyle={props.menuOpen ? iconStyle.open : iconStyle.close} style={{position: "fixed"}} className="appBar" onTouchTap={() => props.actions.toggleMenu(!props.menuOpen)}>
-      <FontIcon color={grey50} className="material-icons hamburger">{props.menuOpen ? 'close' : 'menu'}</FontIcon>
-    </IconButton>
+    <div>
+      <h1 className="brand-name">Django React</h1>
+      <IconButton iconStyle={props.menuOpen ? iconStyle.open : iconStyle.close} style={{position: "fixed"}} className="appBar" onTouchTap={() => props.actions.toggleMenu(!props.menuOpen)}>
+        <FontIcon color={grey50} className="material-icons hamburger">{props.menuOpen ? 'close' : 'menu'}</FontIcon>
+      </IconButton>
+    </div>
   );
 }
 
