@@ -58,13 +58,18 @@ const LogoutButton = props => {
 
 const SideNav = props => {
   return (
-    <div className={props.menuOpen ? "navOpen" : "navClose"}>
+    <Drawer containerClassName="side-nav"
+      open={props.menuOpen}
+      docked={false}
+      overlayClassName="overlay"
+      onRequestChange={open => props.actions.toggleMenu(!props.menuOpen)}
+    >
       <MenuButton path={props.path} color="#2196F3" goToUrl={props.goToUrl} url='/' label="Home"/>
       <MenuButton path={props.path} color="#00BCD4" goToUrl={props.goToUrl} url='/counter' label="Counter"/>
       {!props.isAuthenticated ? <MenuButton path={props.path} color="#4CAF50" goToUrl={props.goToUrl} url='/login' label="Login"/> : null }
       {!props.isAuthenticated ? <MenuButton path={props.path} color="#CDDC39" goToUrl={props.goToUrl} url='/signup' label="Signup"/> : null }
       {props.isAuthenticated ? <LogoutButton path={props.path} color="#4CAF50" logout={props.logout} label="Logout"/> : null }
-    </div>
+    </Drawer>
   );
 }
 

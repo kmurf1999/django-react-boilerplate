@@ -1,3 +1,5 @@
+@import "src/universal/styles/space.scss";
+
 .form {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,7 @@
 
 .formContainer {
   padding: 1em;
+  margin: $space-stack-default;
 }
 
 .formButton {
@@ -18,12 +21,4 @@
   border-radius: 2px;
   padding: 5px;
   text-align: center;
-}
-
-.linkText {
-  color: #455A64;
-}
-
-.link {
-  color: #3F51B5;
 }

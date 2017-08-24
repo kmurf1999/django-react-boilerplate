@@ -50,7 +50,7 @@ const Login = props => {
             <RaisedButton className="formButton" type="submit" primary={true} label={submitting ? "Submitting" : "Submit"} disabled={pristine || submitting} />
           </form>
         </Paper>
-        <p className="linkText">Don't have an account? <Link className="link" to='/signup'>Signup</Link></p>
+        <p>Don't have an account? <Link to='/signup'>Signup</Link></p>
       </div>
     </MuiThemeProvider>
   );
