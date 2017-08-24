@@ -27,7 +27,7 @@ h4 {
   @include font-size(16);
 }
 
-p, li, ul, ol, div {
+p, li, ul, ol {
   font-family: Helvetica;
   color: material-color('grey', '700');
   @include font-size(10);

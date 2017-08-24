@@ -50,6 +50,7 @@ const Signup = props => {
     <MuiThemeProvider>
       <div>
         <Paper className="formContainer">
+          <h4 className="form-banner">Signup</h4>
           <form className="form" onSubmit={e => handleSubmit(e, username, password)}>
             {renderAsyncError(statusText)}
             <Field name="username" type="text" component={renderField} label="Username"/>

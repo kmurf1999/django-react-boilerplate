@@ -22,7 +22,6 @@
   font-family: $font-family-regular;
   background: none;
   border: none;
-  color: material-color('grey', '800');
   transition: .3s color ease;
 }
 .menuButton:focus {
@@ -35,12 +34,12 @@
   font-family: $font-family-regular;
   background: none;
   border: none;
-  color: material-color('grey', '800');
+  color: white;
   transition: .3s color ease;
 }
 .logoutButton:focus {
   outline: none;
 }
 .logoutButton:hover {
-  color: "#FF9800";
+  color: material-color('red', '400');
 }
