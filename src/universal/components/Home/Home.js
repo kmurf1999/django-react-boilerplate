@@ -6,7 +6,7 @@ class Home extends Component {
   render () {
     return (
       <div className="home">
-        <h1 className="title">Django React Redux SSR</h1>
+        <h2 className="title">Django React Redux SSR</h2>
 
         <div>
           <h2>What is it?</h2>
