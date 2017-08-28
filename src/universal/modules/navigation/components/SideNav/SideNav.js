@@ -2,6 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
+import {
+  grey300
+} from 'material-ui/styles/colors';
 
 import './SideNav.scss'
 
@@ -22,29 +25,37 @@ class MenuButton extends Component {
   };
 
   componentWillReceiveProps() {
-    this.setState({ color: this.defaultColor()});
+    this.setState({ color: this.defaultColor(), borderColor: this.defaultBorderColor() });
   }
 
   defaultColor() {
-    return this.props.path === this.props.url ? this.props.color : "#fff"
+    return this.props.path === this.props.url ? this.props.color : grey300;
+  }
+
+  defaultBorderColor() {
+    return this.props.path === this.props.url ? this.props.color : "transparent";
   }
 
   state = {
-    color: this.defaultColor()
+    color: this.defaultColor(),
+    borderColor: this.defaultBorderColor()
   };
 
   hover(isHovering) {
     if (isHovering) {
-      this.setState({ color: this.props.color});
+      this.setState({ color: this.props.color, borderColor: this.props.color});
     } else {
-      this.setState({ color: this.defaultColor()});
+      this.setState({ color: this.defaultColor(), borderColor: this.defaultBorderColor()});
     }
   }
 
   render() {
     const { url, goToUrl, color, label } = this.props;
     return (
-      <button style={{color: this.state.color}} onMouseEnter={() => this.hover(true)} onMouseLeave={() => this.hover(false)} onTouchTap={() => goToUrl(url)} className="menuButton">{label}</button>
+      <div>
+        <button style={{color: this.state.color}} onMouseEnter={() => this.hover(true)} onMouseLeave={() => this.hover(false)} onTouchTap={() => goToUrl(url)} className="menuButton">{label}</button>
+        <div className="menu-triangle" style={{ backgroundColor: `${this.state.borderColor}`}}/>
+      </div>
     );
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
 import {
-  green300, grey50
+  green300, grey100, grey300
 } from 'material-ui/styles/colors';
 
 import './NavBar.scss';
@@ -26,7 +26,7 @@ const NavBar = props => {
     <div>
       <h1 className="brand-name">Django React</h1>
       <IconButton iconStyle={props.menuOpen ? iconStyle.open : iconStyle.close} style={{position: "fixed"}} className="appBar" onTouchTap={() => props.actions.toggleMenu(!props.menuOpen)}>
-        <FontIcon color={grey50} className="material-icons hamburger">{props.menuOpen ? 'close' : 'menu'}</FontIcon>
+        <FontIcon color={props.menuOpen ? grey300 : grey100} className="material-icons hamburger">{props.menuOpen ? 'close' : 'menu'}</FontIcon>
       </IconButton>
     </div>
   );

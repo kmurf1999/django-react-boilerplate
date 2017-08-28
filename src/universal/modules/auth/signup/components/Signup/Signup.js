@@ -59,7 +59,7 @@ const Signup = props => {
             <RaisedButton className="formButton" type="submit" primary={true} label="Submit" disabled={pristine || submitting} />
           </form>
         </Paper>
-        <p>Already have an account? <Link to='/login'>Login</Link></p>
+        <p className="help-text">Already have an account? <Link to='/login'>Login</Link></p>
       </div>
     </MuiThemeProvider>
   );
