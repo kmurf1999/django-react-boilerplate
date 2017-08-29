@@ -30,7 +30,7 @@
   transition: .3s color ease;
 }
 
-.menu-triangle {
+.menu-highlight {
   position: absolute;
   content: '';
   right: 0;
@@ -38,20 +38,4 @@
   width: 50%;
   height: 3px;
   transition: .5s background-color ease;
-}
-
-.logoutButton {
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    color: material-color('red', '400');
-  }
-  margin: $space-stack-s;
-  @include font-size(14);
-  font-family: $font-family-regular;
-  background: none;
-  border: none;
-  color: white;
-  transition: .3s color ease;
 }

@@ -1,0 +1,35 @@
+@import 'node_modules/sass-material-colors/sass/sass-material-colors';
+@import 'src/universal/styles/space';
+@import 'src/universal/styles/mixins';
+
+
+@keyframes toast-pop {
+  0% { opacity: 0; bottom: -20px; }
+  10% { opacity: 1; bottom: $space-default; }
+  75% { opacity: 1; bottom: $space-default; }
+  100% { opacity: 0; bottom: 0; }
+}
+
+.toast {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: $space-default;
+  right: $space-default;
+  padding: $space-inset-s;
+  opacity: 0;
+  background-color: material-color('green', '300');
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  animation-name: toast-pop;
+  animation-duration: 4s;
+}
+
+.toast-hidden {
+  display: none;
+}
+
+.toast-text {
+  color: material-color('grey', '50');
+  @include font-size(10);
+}

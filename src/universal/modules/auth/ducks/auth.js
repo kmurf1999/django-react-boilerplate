@@ -1,4 +1,5 @@
-import fetch from 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch';
+import { push } from 'react-router-redux';
 
 import {SERVER_URL} from '../../../utils/config';
 import { checkHttpStatus, parseJSON, createReducer } from '../../../utils/utils';
@@ -19,14 +20,16 @@ const initialState = {
   isAuthenticating: false,
   statusText: null,
   user: {},
-  token: ''
+  token: '',
+  toast: null
 };
 
 export default createReducer(initialState, {
     [LOGIN_REQUEST]: (state, payload) => {
       return Object.assign({}, state, {
         isAuthenticating: true,
-        statusText: 'Submitting...'
+        statusText: 'Submitting...',
+        toast: null
       });
     },
     [LOGIN_SUCCESS]: (state, payload) => {
@@ -36,19 +39,24 @@ export default createReducer(initialState, {
         statusText: '',
         token: payload.token,
         user: payload.user,
+        toast: {
+          text: `Successfully logged in as ${payload.user.username}`
+        }
       });
     },
     [LOGIN_FAILURE]: (state, payload) => {
       return Object.assign({}, state, {
         isAuthenticated: false,
         isAuthenticating: false,
-        statusText: `${payload.errorCode} ${payload.errorMessage}`
+        statusText: `${payload.errorCode} ${payload.errorMessage}`,
+        toast: null
       });
     },
     [SIGNUP_REQUEST]: (state, payload) => {
       return Object.assign({}, state, {
         isAuthenticating: true,
-        statusText: 'Signing up'
+        statusText: 'Signing up',
+        toast: null
       });
     },
     [SIGNUP_SUCCESS]: (state, payload) => {
@@ -57,14 +65,18 @@ export default createReducer(initialState, {
         isAuthenticating: false,
         statusText: '',
         user: payload.user,
-        token: payload.token
+        token: payload.token,
+        toast: {
+          text: `Successfully logged in as ${payload.user.username}`
+        }
       });
     },
     [SIGNUP_FAILURE]: (state, payload) => {
       return Object.assign({}, state, {
         isAuthenticated: false,
         isAuthenticating: false,
-        statusText: `${payload.errorCode} ${payload.errorMessage}`
+        statusText: `${payload.errorCode} ${payload.errorMessage}`,
+        toast: null
       });
     },
     [LOGOUT]: (state, payload) => {
@@ -73,7 +85,10 @@ export default createReducer(initialState, {
         isAuthenticating: false,
         token: '',
         user: {},
-        statusText: ''
+        statusText: '',
+        toast: {
+          text: 'Successfully logged out'
+        }
       });
     },
 });
@@ -94,6 +109,7 @@ export function login(username, password) {
     .then(parseJSON)
     .then((response) => {
       dispatch(loginSuccess(response.token, response.user));
+      dispatch(push('/'));
     })
     .catch((error) => {
       if (error && typeof error.response !== 'undefined' && error.response.status === 401) {
@@ -189,6 +205,7 @@ export function signup(username, password) {
     .then(parseJSON)
     .then((response) => {
       dispatch(signupSuccess(response.token, response.user));
+      dispatch(push('/'));
     })
     .catch((error) => {
       if (error && typeof error.response !== 'undefined' && error.response.status === 400) {

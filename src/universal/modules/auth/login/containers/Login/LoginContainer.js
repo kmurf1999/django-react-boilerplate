@@ -19,6 +19,12 @@ class LoginContainer extends Component {
     statusText: '',
   };
 
+  componentWillMount() {
+    if (this.props.isAuthenticated) {
+      this.props.history.push('/');
+    }
+  }
+
   handleSubmit(e, username, password) {
     e.preventDefault();
     e.stopPropagation();
@@ -33,6 +39,7 @@ class LoginContainer extends Component {
 function mapStateToProps(state, props) {
   const selector = formValueSelector('login');
   return {
+    isAuthenticated: state.auth.isAuthenticated,
     username: selector(state, 'username'),
     password: selector(state, 'password'),
     statusText: state.auth.statusText

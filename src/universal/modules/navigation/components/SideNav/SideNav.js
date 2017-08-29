@@ -54,17 +54,10 @@ class MenuButton extends Component {
     return (
       <div>
         <button style={{color: this.state.color}} onMouseEnter={() => this.hover(true)} onMouseLeave={() => this.hover(false)} onTouchTap={() => goToUrl(url)} className="menuButton">{label}</button>
-        <div className="menu-triangle" style={{ backgroundColor: `${this.state.borderColor}`}}/>
+        <div className="menu-highlight" style={{ backgroundColor: `${this.state.borderColor}`}}/>
       </div>
     );
   }
-}
-
-
-const LogoutButton = props => {
-  return (
-    <button onTouchTap={() => props.logout()} className="logoutButton">{props.label}</button>
-  );
 }
 
 const SideNav = props => {
@@ -79,7 +72,7 @@ const SideNav = props => {
       <MenuButton path={props.path} color="#00BCD4" goToUrl={props.goToUrl} url='/counter' label="Counter"/>
       {!props.isAuthenticated ? <MenuButton path={props.path} color="#4CAF50" goToUrl={props.goToUrl} url='/login' label="Login"/> : null }
       {!props.isAuthenticated ? <MenuButton path={props.path} color="#CDDC39" goToUrl={props.goToUrl} url='/signup' label="Signup"/> : null }
-      {props.isAuthenticated ? <LogoutButton path={props.path} color="#4CAF50" logout={props.logout} label="Logout"/> : null }
+      {props.isAuthenticated ? <MenuButton path={props.path} color="#4CAF50" goToUrl={props.goToUrl} url='/logout' label="Logout"/> : null }
     </Drawer>
   );
 }
