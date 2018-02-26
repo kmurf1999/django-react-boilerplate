@@ -22,6 +22,6 @@ requests==2.18.2
 python-dateutil==2.6.0
 
 # Logging
-git+https://github.com/Seedstars/django-rest-logger.git
+# git+https://github.com/Seedstars/django-rest-logger.git
 
-django-rest-knox==3.0.0
+django-rest-knox==3.1.3
